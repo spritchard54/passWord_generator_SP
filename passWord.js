@@ -8,6 +8,7 @@ var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "123456789";
 var specialChar = "!@#$%^&*";
 var passwordLength = '';
+var userSelections = []; 
 
 // non-starter code - Whatever is returned by this function is what appears in the card
 var generatePassword = function(){
@@ -26,12 +27,10 @@ var passwordLength = window.prompt("Enter a desired password length between 8 an
         alert("You character limit must be between 8 & 128 characters");
             var passwordLength = window.prompt("Enter a desired password length between 8 and 128 characters");
             console.log("The password you have entered is not between 8 & 128 Characters");
-
-// Confirm UPPERCASE characters    
-        }else{
-        var uCase = confirm("Does your password require UPPER CASE characters? Yes (Ok) or No (Cancel)");
+        }else{// Confirm UPPERCASE characters
+            var uCase = confirm("Does your password require UPPER CASE characters? Yes (Ok) or No (Cancel)");
             console.log("UPPERCASE characters = " + uCase);        
-        }
+            }
 
 //Confirm upper case characters
 //If this condition is true add the corresponding variable to an array, and when all true conditions are in the array, then run the for loop and randomize????
@@ -48,32 +47,35 @@ var passwordLength = window.prompt("Enter a desired password length between 8 an
 
 //Begin "if statements" and use a loop to generate password; console log there to test if "if statment" is working
 
-    if(uCase === true){
-    userselections.push(upperCase);        
-    }
-    if(lCase === true){
-    userselections.push(lowerCase);        
-    }
-    if(nums === true){
-    userselections.push(numbers);        
-    }
-    if(sChar === true){
-    userselections.push(specialChar);        
-    }
+        if(uCase === true){
+        userSelections.push(upperCase);        
+        }
+        if(lCase === true){
+        userSelections.push(lowerCase);        
+        }
+        if(nums === true){
+        userSelections.push(numbers);        
+        }
+        if(sChar === true){
+        userSelections.push(specialChar);        
+        }
 
-//Processing - Combine the elements from the userselection into a single string and process on line 66
-    function createPassword(){
-    var password = '';
-    for(var i=0; i < passwordLength.length;i++){
-    var randomCharacters = userselections[Math.floor(Math.random()* userselections.length)]; 
-    password += randomCharacters;
-    }
-    //document.querySelector('#password').textContent = password;
-    return password;
-    }         
-}//End of function starting on line 12
+//convert userSelection[] to single string of characters
+        userSelections.join('');
+        console.log(userSelections.join(''));
 
-    var userselections = [];
+        //Processing - Combine the elements from the userselection into a single string and process on line 66
+        function createPassword(){
+            var password = '';
+            for(var i=0; i < passwordLength.length;i++){
+            var randomCharacters = userSelections[Math.floor(Math.random() * userSelections.length)]; 
+            password += randomCharacters;
+            }
+            return password;
+        }         
+    }//End of function var generatePassword = funtion
+
+    
 
 //Write password to the #password input
     function writePassword() {
