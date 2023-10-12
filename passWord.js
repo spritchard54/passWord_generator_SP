@@ -7,15 +7,17 @@ var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "123456789";
 var specialChar = "!@#$%^&*";
-var passwordLength = '';
-var userSelections = []; 
+var passwordLength = "";
+
 
 // non-starter code - Whatever is returned by this function is what appears in the card
-var generatePassword = function(){
+    var generatePassword = function(){
+        
+    var userSelections = []; 
 
-// Steve's Promopts and Confirms
+// Promopts for password length/number of characters
 // Prompt
-var passwordLength = window.prompt("Enter a desired password length between 8 and 128 characters");
+    var passwordLength = window.prompt("Enter a desired password length between 8 and 128 characters");
 
 //Convert passwordLength to an integer
     var passwordLength = (parseInt(passwordLength));
@@ -32,12 +34,11 @@ var passwordLength = window.prompt("Enter a desired password length between 8 an
             console.log("UPPERCASE characters = " + uCase);        
             }
 
-//Confirm upper case characters
-//If this condition is true add the corresponding variable to an array, and when all true conditions are in the array, then run the for loop and randomize????
+//Confirm  lowercase characters
     var lCase = window.confirm("Does your password require  characters? Yes (Ok) or No (Cancel)");
         console.log("Lowercase characters = " + lCase); 
 
-//Confirm number of characters
+//Confirm numberic characters
     var nums = window.confirm("Does your password require numeric characters? Yes (Ok) or No (Cancel)");
         console.log("Numeric Characters = " + nums);
 
@@ -45,34 +46,41 @@ var passwordLength = window.prompt("Enter a desired password length between 8 an
     var sChar = window.confirm("Do your password require special characters? Yes (Ok) or No (Cancel)");
         console.log("Special Characters = " + sChar);
 
-//Begin "if statements" and use a loop to generate password; console log there to test if "if statment" is working
+//Begin "if statements"
 
-        if(uCase === true){
+        if(uCase){
         userSelections.push(upperCase);        
         }
-        if(lCase === true){
+        if(lCase){
         userSelections.push(lowerCase);        
         }
-        if(nums === true){
+        if(nums){
         userSelections.push(numbers);        
         }
-        if(sChar === true){
+        if(sChar){
         userSelections.push(specialChar);        
         }
 
 //convert userSelection[] to single string of characters
-        userSelections.join('');
-        console.log(userSelections.join(''));
+        userSelections.join("");
+        console.log(userSelections.join(""));
+        console.log(userSelections);
 
-        //Processing - Combine the elements from the userselection into a single string and process on line 66
-        function createPassword(){
+//Processing 
+        // function createPassword(){
             var password = '';
-            for(var i=0; i < passwordLength.length;i++){
-            var randomCharacters = userSelections[Math.floor(Math.random() * userSelections.length)]; 
-            password += randomCharacters;
-            }
+            for(var i=0; i <= passwordLength/*.length with this removed app loops through the userSelections array randomly*/;i++){
+                var randomCharacterSet = userSelections[Math.floor(Math.random() * userSelections.length)];
+                var randomCharacter = randomCharacterSet[Math.floor(Math.random() * randomCharacterSet.length)];
+                
+                password += randomCharacter;   
+            // var randomCharacters = userSelections[Math.floor(Math.random() * userSelections.length)]; 
+            // password += randomCharacters;
+            }//end of for loop
+            
             return password;
-        }         
+        // }//End of function createPassword
+
     }//End of function var generatePassword = funtion
 
     
