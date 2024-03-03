@@ -9,7 +9,7 @@
 This application demonstrates the developers proficiency in writing Javascript by generating a randomized password based on input provided to the application by the page visitor through a series of prompts/confirms.
 
 ## Link to live application
-1. https://spritchard54.github.io/passWord_generator_SP/
+https://spritchard54.github.io/passWord_generator_SP/
 
 ## Basic Requirements
 1. When the visitor clicks on the Generate Password button they are presented with a series of prompts
@@ -27,3 +27,7 @@ This application demonstrates the developers proficiency in writing Javascript b
 1. HTML
 2. CSS
 3. JavaScript
+
+## Questions
+- Github: https://github.com/spritchard54
+- Email: <swpritchard54@gmail.com>
